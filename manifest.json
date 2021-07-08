@@ -10,13 +10,20 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
+  "background": 
+    {
+        "scripts": ["background.js"]
+    },
   
   "content_scripts": [
     {
       "matches": [
-        "https://*.netflix.com/*"
+        "https://*.netflix.com/*",
+        "https://*.amazon.com/*",
+        "https://*.peacocktv.com/*" 
       ],
       "js": [
           "jquery.min.js",
