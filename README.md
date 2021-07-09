@@ -8,10 +8,12 @@ A lightweight Chrome extension to auto - "Skip Intro" on streaming services. Cur
 - [x] Peacock TV
 - [ ] Hulu
 - [ ] HBOMax
-- [ ] Disney+
+- [x] Disney+
 
 Support for other services is coming soon.
 
 ## ToDo
 - [ ] Add Switches for each services
 - [ ] Add Custom Shows/Movies to Skip or not Skip
+- [ ] Package and upload to Chrome Store
+- [ ] Change icon

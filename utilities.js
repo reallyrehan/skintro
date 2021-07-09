@@ -10,6 +10,18 @@ console.log("HELLO");
 
 console.log(2)
 
+function generateNotification(serv){
+    chrome.runtime.sendMessage('', {
+        type: 'notification',
+        options: {
+          title: 'SkIntro',
+          message: 'We skipped the '+serv+' intro for you!',
+          iconUrl: '/icon.png',
+          type: 'basic'
+        }
+      });
+}
+
 
 console.log(location.hostname)
 
@@ -19,6 +31,10 @@ if (location.hostname == "www.netflix.com"){
         document.getElementsByClassName("nf-icon-button")[0].click();
         console.log("SKIP")
         console.log(document.querySelector('.ellipsize-text'));
+
+        generateNotification('Netflix');
+
+
     });
 
 }
@@ -27,6 +43,7 @@ else if (location.hostname == "www.amazon.com"){
     document.arrive(".atvwebplayersdk-skipelement-button",function(){
         document.getElementsByClassName("atvwebplayersdk-skipelement-button")[0].click();
         console.log("SKIP FOUND")
+        generateNotification('Amazon');
         // console.log(document.querySelector('.ellipsize-text'));
     });
 
@@ -37,6 +54,19 @@ else if (location.hostname == "www.peacocktv.com"){
     document.arrive(".playback-controls__skip--button",function(){
         document.getElementsByClassName("playback-controls__skip--button")[0].click();
         console.log("SKIP FOUND")
+
+        generateNotification('Peacock');
+        // console.log(document.querySelector('.ellipsize-text'));
+    });
+
+}
+else if (location.hostname == "www.disneyplus.com"){
+    console.log("DISNEYPLUS YAY");
+    document.arrive(".skip__button",function(){
+        document.getElementsByClassName("skip__button")[0].click();
+        console.log("SKIP FOUND")
+
+        generateNotification('Disney+');
         // console.log(document.querySelector('.ellipsize-text'));
     });
 

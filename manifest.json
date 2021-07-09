@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Netflix Skip Intro",
-  "description": "This extension auto skips the intro for Netflix shows.",
+  "name": "SkIntro",
+  "description": "This extension auto skips the intro for Streaming services.",
   "version": "1.0",
 
   "browser_action": {
@@ -11,7 +11,8 @@
   },
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "notifications"
   ],
   "background": 
     {
@@ -23,7 +24,8 @@
       "matches": [
         "https://*.netflix.com/*",
         "https://*.amazon.com/*",
-        "https://*.peacocktv.com/*" 
+        "https://*.peacocktv.com/*",
+        "https://*.disneyplus.com/*" 
       ],
       "js": [
           "jquery.min.js",
