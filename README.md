@@ -17,3 +17,5 @@ Support for other services is coming soon.
 - [ ] Add Custom Shows/Movies to Skip or not Skip
 - [ ] Package and upload to Chrome Store
 - [ ] Change icon
+- [x] Add notification
+- [ ] Add notification option

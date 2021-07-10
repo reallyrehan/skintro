@@ -71,6 +71,17 @@ else if (location.hostname == "www.disneyplus.com"){
     });
 
 }
+// else if (location.hostname == "www.hulu.com"){
+//     console.log("HULU YAY");
+//     document.arrive(".SkipButton__button",function(){
+//         document.getElementsByClassName("SkipButton__button")[0].click();
+//         console.log("SKIP FOUND")
+
+//         generateNotification('Hulu');
+//         // console.log(document.querySelector('.ellipsize-text'));
+//     });
+
+// }
 
 
 

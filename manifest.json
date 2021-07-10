@@ -12,7 +12,8 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "notifications"
+    "notifications",
+    "storage"
   ],
   "background": 
     {
@@ -25,7 +26,8 @@
         "https://*.netflix.com/*",
         "https://*.amazon.com/*",
         "https://*.peacocktv.com/*",
-        "https://*.disneyplus.com/*" 
+        "https://*.disneyplus.com/*"
+        // "https://*.hulu.com/*" 
       ],
       "js": [
           "jquery.min.js",

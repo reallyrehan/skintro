@@ -1,11 +1,127 @@
-// function injectTheScript() {
- 
-//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//         // Injects JavaScript code into a page
-//         chrome.tabs.executeScript(tabs[0].id, {file: "utilities.js"});
-//     });
-// }
-// // adding listener to your button in popup window
-// // document.getElementById('press').addEventListener('click', injectTheScript);
-// injectTheScript();
+function getCurrentTabUrl(callback) {  
+    var queryInfo = {
+      active: true, 
+      currentWindow: true
+    };
+  
+    chrome.tabs.query(queryInfo, function(tabs) {
+      var tab = tabs[0]; 
+      var url = tab.url;
+      
+      callback(url);
+    });
+  }
+  
+  function renderURL(statusText) {
+    document.getElementById('service_name').html = statusText;
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    getCurrentTabUrl(function(url) {
+        const regex = "https://.*netflix.com*"
+        console.log(url.match(regex))
 
+        // console.log(url)
+        // console.log(regex)
+
+        if (url.match(regex) !== null ){
+
+
+
+            // checkboxListener('Netflix');
+
+            var stream_service = 'Netflix'
+            checkboxSetter(stream_service);
+
+            
+            // renderURL("Netflix"); 
+
+        
+
+        }
+        else{
+            // renderURL("N/A"); 
+            document.getElementById('service_name').textContent = "N/A";
+            document.getElementById('service_name').style.opacity = "0.4";
+            document.getElementsByClassName('onoffswitch-checkbox')[0].checked=false;
+            document.getElementsByClassName('onoffswitch-checkbox')[0].disabled=true;
+            document.getElementsByClassName('onoffswitch')[0].style.opacity = "0.4";
+        }
+
+      
+    });
+
+    
+
+
+
+
+  });
+
+
+  function checkboxSetter(stream_service){
+    var checkbox = document.querySelector(".onoffswitch-checkbox");
+    checkbox.addEventListener('change', function() {
+      if (this.checked) {
+          var value = true;
+    
+        chrome.storage.sync.set({[stream_service]: value}, function() {
+            console.log('Value for '+stream_service+' is set to ' + value);
+          });
+      } else {
+        var value = false;
+        chrome.storage.sync.set({[stream_service]: value}, function() {
+            console.log('Value for '+stream_service+' is set to ' + value);
+          });
+      }
+    });
+
+    document.getElementById('service_name').textContent = stream_service;
+
+    var value;
+    chrome.storage.sync.get(stream_service, function(result) {
+        console.log('Value currently is ' + result[stream_service]);
+        value = result[stream_service];
+
+        if (value){
+            console.log("ALREADY TRUE")
+          document.getElementsByClassName('onoffswitch-checkbox')[0].checked=true;
+
+        }
+        else{
+            console.log("FALSE")
+          document.getElementsByClassName('onoffswitch-checkbox')[0].checked=false;
+
+        }
+
+      });
+
+  }
+
+
+// var checkbox = document.querySelector(".onoffswitch-checkbox");
+
+// checkbox.addEventListener('change', function() {
+
+    
+
+//   if (this.checked) {
+
+//       var value = true;
+//     chrome.storage.sync.set({'Netflix': value}, function() {
+//         console.log('Value is set to ' + value);
+//       });
+
+      
+//       console.log("Checkbox is checked..");
+//   } else {
+
+//     var value = false;
+//     chrome.storage.sync.set({'Netflix': value}, function() {
+//         console.log('Value is set to ' + value);
+//       });
+
+
+//     console.log("Checkbox is not checked..");
+//   }
+// });
