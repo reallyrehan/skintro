@@ -1,97 +1,147 @@
-<!doctype html>  
-<html>  
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html>
 
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
-            <title>SkIntro</title>
-            <style>
-.onoffswitch {
-    position: relative; width: 90px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 10px;
-    background-color: #07cc21; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 56px;
-    border: 2px solid #999999; border-radius: 20px;
-    transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
-            </style>
-    
-    
-    
-    </head>  
-    <body style = "width:250px; height:40px;" >
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-      <!-- <div class = "bg-dark text-light"><p id="htwo" class="mb-2 ml-2" style="text-align: center;">SkIntro</p></div> -->
-        
 
-        <div class = "container mt-2">
-          <div class = "row">
+  <title>SkIntro</title>
+  <style>
+    .onoffswitch {
+      position: relative;
+      width: 90px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
 
-            <div class = "col-6">
-<h4 id = "service_name"></h4>
+    .onoffswitch-checkbox {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .onoffswitch-label {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid #999999;
+      border-radius: 20px;
+    }
+
+    .onoffswitch-inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.3s ease-in 0s;
+    }
+
+    .onoffswitch-inner:before,
+    .onoffswitch-inner:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 30px;
+      padding: 0;
+      line-height: 30px;
+      font-size: 14px;
+      color: white;
+      font-family: Trebuchet, Arial, sans-serif;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+
+    .onoffswitch-inner:before {
+      content: "ON";
+      padding-left: 10px;
+      background-color: #07cc21;
+      color: #FFFFFF;
+    }
+
+    .onoffswitch-inner:after {
+      content: "OFF";
+      padding-right: 10px;
+      background-color: #EEEEEE;
+      color: #999999;
+      text-align: right;
+    }
+
+    .onoffswitch-switch {
+      display: block;
+      width: 18px;
+      margin: 6px;
+      background: #FFFFFF;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 56px;
+      border: 2px solid #999999;
+      border-radius: 20px;
+      transition: all 0.3s ease-in 0s;
+    }
+
+    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+      margin-left: 0;
+    }
+
+    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+      right: 0px;
+    }
+  </style>
 
 
-            </div>
-            <div class = "col-6">
-              <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-                <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                </label>
-            </div>
 
-            </div>
-          </div>
+</head>
 
-        
+<body style="width:320px; height:30px;" class="bg-dark text-white">
+
+
+  <!-- <div class = "bg-dark text-light"><p id="htwo" class="mb-2 ml-2" style="text-align: center;">SkIntro</p></div> -->
+
+
+  <div class="container mt-2">
+    <div class="row">
+
+      <div class="col-5">
+        <h4>
+          <span id="service_name" class="mr-auto"></span> <span style="position:absolute; font-size: 10px;"
+            class="ml-2">AutoSkip</span>
+        </h4>
+
+      </div>
+      <div class="col-5">
+        <div class="onoffswitch ml-auto">
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
+            checked>
+          <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
         </div>
 
 
 
-          <script src="popup.js"></script>
-    </body>
+      </div>
+
+      <div class="col-2" style="margin-top:2px;">
+
+        <a href="https://www.buymeacoffee.com/rehanahmed" target ="_blank" ><img
+           alt = "Buy Me a Coffee" src="images/coffee.png" style="width:25px; height:25px;"></a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="popup.js"></script>
+</body>
+
 </html>

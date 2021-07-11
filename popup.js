@@ -18,35 +18,41 @@ function getCurrentTabUrl(callback) {
   
   document.addEventListener('DOMContentLoaded', function() {
     getCurrentTabUrl(function(url) {
-        const regex = "https://.*netflix.com*"
-        console.log(url.match(regex))
+        const netflixRegex = "https://.*netflix.com*";
+        const primeRegex = "https://.*amazon.com*";
+        const primeRegex2 = "https://.*primevideo.com";
+        const peacockRegex = "https://.*peacocktv.com*";
+        const disneyRegex = "https://.*disneyplus.com*";
+        
+        console.log(url.match(primeRegex2))
 
-        // console.log(url)
-        // console.log(regex)
 
-        if (url.match(regex) !== null ){
-
-
-
-            // checkboxListener('Netflix');
-
+        if (url.match(netflixRegex) !== null ){
             var stream_service = 'Netflix'
             checkboxSetter(stream_service);
-
-            
-            // renderURL("Netflix"); 
-
-        
-
         }
+        else if (url.match(primeRegex) !== null || url.match(primeRegex2) !== null){
+
+            var stream_service = 'Prime'
+            checkboxSetter(stream_service);
+        }
+        else if (url.match(disneyRegex) !== null ){
+            var stream_service = 'Disney+'
+            checkboxSetter(stream_service);
+        }
+        // else if (url.match(huluRegex) !== null ){
+        //     var stream_service = 'Hulu'
+        //     checkboxSetter(stream_service);
+        // }
+        else if (url.match(peacockRegex) !== null ){
+            var stream_service = 'Peacock'
+            checkboxSetter(stream_service);
+        }
+
         else{
             // renderURL("N/A"); 
-            document.getElementById('service_name').textContent = "N/A";
-            document.getElementById('service_name').style.opacity = "0.4";
-            document.getElementsByClassName('onoffswitch-checkbox')[0].checked=false;
-            document.getElementsByClassName('onoffswitch-checkbox')[0].disabled=true;
-            document.getElementsByClassName('onoffswitch')[0].style.opacity = "0.4";
-        }
+            disableCheckbox();
+    }
 
       
     });
@@ -96,6 +102,14 @@ function getCurrentTabUrl(callback) {
 
       });
 
+  }
+
+  function disableCheckbox(){
+    document.getElementById('service_name').textContent = "N/A";
+    document.getElementById('service_name').style.opacity = "0.4";
+    document.getElementsByClassName('onoffswitch-checkbox')[0].checked=false;
+    document.getElementsByClassName('onoffswitch-checkbox')[0].disabled=true;
+    document.getElementsByClassName('onoffswitch')[0].style.opacity = "0.4";
   }
 
 
