@@ -113,6 +113,11 @@ function getCurrentTabUrl(callback) {
   }
 
 
+
+  var optionsUrl = chrome.extension.getURL("options.html"); 
+//   var content = '<a href="' + optionsUrl + '" target="_blank">Options</a>';
+  console.log(optionsUrl)
+
 // var checkbox = document.querySelector(".onoffswitch-checkbox");
 
 // checkbox.addEventListener('change', function() {

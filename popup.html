@@ -8,7 +8,6 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-
   <title>SkIntro</title>
   <style>
     .onoffswitch {
@@ -91,6 +90,10 @@
     .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
       right: 0px;
     }
+
+    a:hover{
+      text-decoration: none;
+    }
   </style>
 
 
@@ -106,14 +109,16 @@
   <div class="container mt-2">
     <div class="row">
 
-      <div class="col-5">
+      <div class="col-4">
         <h4>
-          <span id="service_name" class="mr-auto"></span> <span style="position:absolute; font-size: 10px;"
-            class="ml-2">AutoSkip</span>
+          <span id="service_name" class="mr-auto"></span>
+
+          <!-- <a href = "/options.html" target = "_blank" style = "color:white;"><span id="options" style="position:absolute; font-size: 10px;" class="ml-2">     <img src = "images/cog.png" style="width:15px; height:15px;">      </span></a> -->
+        
         </h4>
 
       </div>
-      <div class="col-5">
+      <div class="col-4">
         <div class="onoffswitch ml-auto">
           <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
             checked>
@@ -127,9 +132,15 @@
 
       </div>
 
-      <div class="col-2" style="margin-top:2px;">
 
-        <a href="https://www.buymeacoffee.com/rehanahmed" target ="_blank" ><img
+      
+      <div class="col-4" style="margin-top:2px;">
+        <a href = "/options.html" target = "_blank" style = "color:white;"> <img src = "images/cog.png" style="width:25px; height:25px;"> </a>
+
+
+
+
+        <a class = "ml-3" href="https://www.buymeacoffee.com/rehanahmed" target ="_blank" ><img
            alt = "Buy Me a Coffee" src="images/coffee.png" style="width:25px; height:25px;"></a>
 
 
