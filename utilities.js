@@ -5,18 +5,63 @@ var Arrive=function(e,t,n){"use strict";function r(e,t,n){l.addMethod(t,n,e.unbi
 
 
 
-function generateNotification(serv){
-    chrome.runtime.sendMessage('', {
-        type: 'notification',
-        options: {
-          title: 'SkIntro',
-          message: 'We skipped the '+serv+' intro for you!',
-          iconUrl: '/icon.png',
-          type: 'basic'
-        }
-      });
-}
+        // document.arrive(".ytp-ad-skip-button",function(){
+//     document.getElementsByClassName('ytp-ad-skip-button')[0].click();
 
+// });
+
+
+// function generateNotification(serv){
+//     chrome.runtime.sendMessage('', {
+//         type: 'notification',
+//         options: {
+//           title: 'SkIntro',
+//           message: 'We skipped the '+serv+' intro for you!',
+//           iconUrl: '/icon.png',
+//           type: 'basic'
+//         }
+//       });
+// }
+
+
+function generateNotification(serv){
+    // console.log("HELLO");
+    // console.log(document.getElementById('message'));
+    var notif_key = "notification";
+    chrome.storage.sync.get(notif_key, function(result) {
+        value = result[notif_key];
+    
+        if (value){
+
+            if (document.getElementById('message') == null )
+            {
+                console.log("Notifications are On")
+                var button = document.createElement("div");
+                button.innerHTML = '<div style = "background-color:black; color:white;top:10px;right:10px;position:absolute;z-index: 9999" id="message" ><p style="margin-left:8px;margin-right:8px;">Skipped Intro</p></div>';
+                // button.style = "color:white;top:10px;right:10px;position:absolute;z-index: 9999"
+                document.body.appendChild(button);
+                setTimeout(disableNotification,3000);
+            }
+            else if (document.getElementById('message').style.display == "none" ){
+                document.getElementById('message').style.display="block";
+                setTimeout(disableNotification,3000);
+            }
+    
+        }
+        else{
+            console.log("Notifications are Off")
+        }
+    
+      });
+
+    }
+    
+    // <div style = "top:10px;right:10px;position:absolute;z-index: 9999" id="message" >Skipped Intro</div>
+    
+
+function disableNotification(){
+    document.getElementById('message').style.display="none";
+}
 
 
 
@@ -38,6 +83,38 @@ if (location.hostname == "www.netflix.com"){
                 // console.log(document.querySelector('.ellipsize-text'));
         
                 generateNotification('Netflix');
+    
+            }
+            else{
+                console.log("Skipping Off")
+            }
+    
+          });
+
+
+
+    });
+
+}
+else if (location.hostname == "www.youtube.com"){
+
+    var stream_service = "YouTube";
+    console.log(stream_service)
+
+
+    document.arrive(".ytp-ad-skip-button",function(){
+
+
+
+        chrome.storage.sync.get(stream_service, function(result) {
+            value = result[stream_service];
+    
+            if (value ){
+                document.getElementsByClassName("ytp-ad-skip-button")[0].click();
+                console.log("Skipped Ad")
+                // console.log(document.querySelector('.ellipsize-text'));
+        
+                generateNotification(stream_service);
     
             }
             else{

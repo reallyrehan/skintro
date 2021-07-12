@@ -43,6 +43,96 @@ checkboxSetter('Netflix','netflixSwitch');
 checkboxSetter('Disney+','disneySwitch');
 checkboxSetter('Prime','amazonSwitch');
 checkboxSetter('Peacock','peacockSwitch');
+checkboxSetter('YouTube','youtubeSwitch');
 
 
 
+
+// NOTIFICATION
+function turnOffNotificationIcon(notif_icon){
+
+    notif_icon.classList.remove('fa-bell');
+    notif_icon.classList.add('fa-bell-slash');
+
+}
+
+function turnOnNotificationIcon(notif_icon){
+
+    notif_icon.classList.remove('fa-bell-slash');
+    notif_icon.classList.add('fa-bell');
+
+}
+
+var notif_key = "notification";
+var notif_icon = document.getElementById("notif")
+
+chrome.storage.sync.get(notif_key, function(result) {
+    console.log('NOTIF Value currently is ' + result[notif_key]);
+    value = result[notif_key];
+
+    if (!value){
+        console.log("NOTIF FALSE")
+      turnOffNotificationIcon(notif_icon);
+
+    }
+    else{
+        console.log("NOTIF undefined or TRUE")
+    //   turnOnNotificationIcon(notif_icon);
+      chrome.storage.sync.set({[notif_key]:true},function(){});
+    }
+
+  });
+
+
+
+
+
+
+  notif_icon.addEventListener("click", function(){
+
+    generateNotification("Hello");
+    
+    chrome.storage.sync.get(notif_key, function(result) {
+        value = result[notif_key];
+    
+        if (!value){
+          turnOnNotificationIcon(notif_icon);
+          chrome.storage.sync.set({[notif_key]:true},function(){});
+    
+        }
+        else{
+          turnOffNotificationIcon(notif_icon);
+          chrome.storage.sync.set({[notif_key]:false},function(){});
+        }
+    
+      });
+    
+
+});
+
+
+
+
+function generateNotification(serv){
+
+    // console.log(document.getElementById('message'));
+    if (document.getElementById('message') == null )
+    {
+        console.log("HELLO")
+        var button = document.createElement("div");
+        button.innerHTML = '<div id="message">Notifications</div>';
+        button.style = "top:10px;right:10px;position:absolute;z-index: 9999"
+        document.body.appendChild(button);
+        setTimeout(disableNotification,3000);}
+    else if (document.getElementById('message').style.display == "none" ){
+        document.getElementById('message').style.display="block";
+        setTimeout(disableNotification,3000);}
+
+    }
+
+
+
+
+function disableNotification(){
+    document.getElementById('message').style.display="none";
+}

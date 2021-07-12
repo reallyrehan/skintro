@@ -23,6 +23,7 @@ function getCurrentTabUrl(callback) {
         const primeRegex2 = "https://.*primevideo.com";
         const peacockRegex = "https://.*peacocktv.com*";
         const disneyRegex = "https://.*disneyplus.com*";
+        const youtubeRegex = "https://.*youtube.com*";
         
         console.log(url.match(primeRegex2))
 
@@ -46,6 +47,10 @@ function getCurrentTabUrl(callback) {
         // }
         else if (url.match(peacockRegex) !== null ){
             var stream_service = 'Peacock'
+            checkboxSetter(stream_service);
+        }
+        else if (url.match(youtubeRegex) !== null ){
+            var stream_service = 'YouTube'
             checkboxSetter(stream_service);
         }
 
