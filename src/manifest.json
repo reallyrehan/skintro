@@ -4,6 +4,7 @@
   "name": "SkIntro",
   "description": "This extension auto skips the intro for Streaming services.",
   "version": "1.0",
+  "icons": {"128": "icon.png" },
   "options_page": "options.html",
   "browser_action": {
     "default_icon": "images/icon.png",

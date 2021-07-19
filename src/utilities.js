@@ -40,11 +40,11 @@ function generateNotification(serv){
                 button.innerHTML = '<div style = "background-color:black; color:white;top:10px;right:10px;position:absolute;z-index: 9999" id="message" ><p style="margin-left:8px;margin-right:8px;">Skipped Intro</p></div>';
                 // button.style = "color:white;top:10px;right:10px;position:absolute;z-index: 9999"
                 document.body.appendChild(button);
-                setTimeout(disableNotification,3000);
+                setTimeout(disableNotification,4000);
             }
             else if (document.getElementById('message').style.display == "none" ){
                 document.getElementById('message').style.display="block";
-                setTimeout(disableNotification,3000);
+                setTimeout(disableNotification,4000);
             }
     
         }
@@ -76,6 +76,8 @@ if (location.hostname == "www.netflix.com"){
 
         chrome.storage.sync.get(stream_service, function(result) {
             value = result[stream_service];
+
+            console.log(value);
     
             if (value ){
                 document.getElementsByClassName("nf-icon-button")[0].click();
