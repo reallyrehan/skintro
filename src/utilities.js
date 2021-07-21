@@ -31,7 +31,7 @@ function generateNotification(serv){
     chrome.storage.sync.get(notif_key, function(result) {
         value = result[notif_key];
     
-        if (value){
+        if (value || value == undefined){
 
             if (document.getElementById('message') == null )
             {
@@ -76,10 +76,8 @@ if (location.hostname == "www.netflix.com"){
 
         chrome.storage.sync.get(stream_service, function(result) {
             value = result[stream_service];
-
-            console.log(value);
     
-            if (value ){
+            if (value || value == undefined){
                 document.getElementsByClassName("nf-icon-button")[0].click();
                 console.log("Skipped Intro")
                 // console.log(document.querySelector('.ellipsize-text'));
@@ -111,7 +109,7 @@ else if (location.hostname == "www.youtube.com"){
         chrome.storage.sync.get(stream_service, function(result) {
             value = result[stream_service];
     
-            if (value ){
+            if (value || value == undefined){
                 document.getElementsByClassName("ytp-ad-skip-button")[0].click();
                 console.log("Skipped Ad")
                 // console.log(document.querySelector('.ellipsize-text'));
@@ -148,7 +146,7 @@ else if (location.hostname == "www.amazon.com" || location.hostname == "www.prim
             value = result[stream_service];
 
     
-            if (value){
+            if (value || value == undefined){
                 document.getElementsByClassName("atvwebplayersdk-skipelement-button")[0].click();
 
                 // setTimeout(testFunc(st_time),3000);
@@ -188,7 +186,7 @@ else if (location.hostname == "www.peacocktv.com"){
         chrome.storage.sync.get(stream_service, function(result) {
             value = result[stream_service];
     
-            if (value){
+            if (value || value == undefined){
                 document.getElementsByClassName("playback-controls__skip--button")[0].click();
                 console.log("Skipping Intro")
         
@@ -224,7 +222,7 @@ else if (location.hostname == "www.disneyplus.com"){
         chrome.storage.sync.get(stream_service, function(result) {
             value = result[stream_service];
     
-            if (value){
+            if (value || value == undefined){
                 document.getElementsByClassName("skip__button")[0].click();
                 console.log("Skipped Intro")
         

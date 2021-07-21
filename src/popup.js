@@ -94,7 +94,7 @@ function getCurrentTabUrl(callback) {
         console.log('Value currently is ' + result[stream_service]);
         value = result[stream_service];
 
-        if (value){
+        if (value || value == undefined){
             console.log("ALREADY TRUE")
           document.getElementsByClassName('onoffswitch-checkbox')[0].checked=true;
 

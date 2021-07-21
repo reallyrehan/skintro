@@ -6,7 +6,7 @@ function checkboxSetter(stream_service,switch_name){
         console.log('Value currently is ' + result[stream_service]);
         value = result[stream_service];
     
-        if (value){
+        if (value || value == undefined){
             console.log("ALREADY TRUE")
           document.getElementById(switch_name).checked=true;
     
@@ -70,13 +70,14 @@ chrome.storage.sync.get(notif_key, function(result) {
     console.log('NOTIF Value currently is ' + result[notif_key]);
     value = result[notif_key];
 
-    if (!value){
-        console.log("NOTIF FALSE")
-      turnOffNotificationIcon(notif_icon);
+    if (value || value == undefined){
+      console.log("NOTIF undefined or TRUE")
+
 
     }
     else{
-        console.log("NOTIF undefined or TRUE")
+      console.log("NOTIF FALSE")
+      turnOffNotificationIcon(notif_icon);
     //   turnOnNotificationIcon(notif_icon);
       chrome.storage.sync.set({[notif_key]:true},function(){});
     }
@@ -95,14 +96,16 @@ chrome.storage.sync.get(notif_key, function(result) {
     chrome.storage.sync.get(notif_key, function(result) {
         value = result[notif_key];
     
-        if (!value){
-          turnOnNotificationIcon(notif_icon);
-          chrome.storage.sync.set({[notif_key]:true},function(){});
+        if (value){
+          turnOffNotificationIcon(notif_icon);
+          chrome.storage.sync.set({[notif_key]:false},function(){});
     
         }
         else{
-          turnOffNotificationIcon(notif_icon);
-          chrome.storage.sync.set({[notif_key]:false},function(){});
+          turnOnNotificationIcon(notif_icon);
+          chrome.storage.sync.set({[notif_key]:true},function(){});
+
+
         }
     
       });
