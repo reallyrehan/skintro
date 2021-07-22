@@ -2,7 +2,7 @@
 Most streaming services offer a "Skip Intro" button. If you always press that button, this extension is for you.
 
 ## Download
-SkIntro is now available to download from the [![Chrome Store](chromestore.png)](https://chrome.google.com/webstore/detail/skintro/acjikceibgbijbnhfialnjhilckdajan)
+SkIntro is now available to download from the [Google Chrome Store](https://chrome.google.com/webstore/detail/skintro/acjikceibgbijbnhfialnjhilckdajan).
 
 ## Description
 A lightweight Chrome extension to auto-skip Intro, Recap, and Ads on streaming services (and YouTube). Currently it supports the following services,
