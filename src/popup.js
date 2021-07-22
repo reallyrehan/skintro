@@ -24,6 +24,7 @@ function getCurrentTabUrl(callback) {
         const peacockRegex = "https://.*peacocktv.com*";
         const disneyRegex = "https://.*disneyplus.com*";
         const youtubeRegex = "https://.*youtube.com*";
+        const huluRegex = "https://.*hulu.com*";
         
         console.log(url.match(primeRegex2))
 
@@ -41,10 +42,6 @@ function getCurrentTabUrl(callback) {
             var stream_service = 'Disney+'
             checkboxSetter(stream_service);
         }
-        // else if (url.match(huluRegex) !== null ){
-        //     var stream_service = 'Hulu'
-        //     checkboxSetter(stream_service);
-        // }
         else if (url.match(peacockRegex) !== null ){
             var stream_service = 'Peacock'
             checkboxSetter(stream_service);
@@ -53,6 +50,10 @@ function getCurrentTabUrl(callback) {
             var stream_service = 'YouTube'
             checkboxSetter(stream_service);
         }
+      //   else if (url.match(huluRegex) !== null ){
+      //     var stream_service = 'Hulu'
+      //     checkboxSetter(stream_service);
+      // }
 
         else{
             // renderURL("N/A"); 

@@ -43,6 +43,7 @@ checkboxSetter('Netflix','netflixSwitch');
 checkboxSetter('Disney+','disneySwitch');
 checkboxSetter('Prime','amazonSwitch');
 checkboxSetter('Peacock','peacockSwitch');
+// checkboxSetter('Hulu','huluSwitch');
 checkboxSetter('YouTube','youtubeSwitch');
 
 

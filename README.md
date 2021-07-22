@@ -1,5 +1,5 @@
 # SkIntro
-Most streaming services offer a "Skip Intro" button. If you always press that button, this extension is for you.
+Most streaming services offer a "Skip Intro" button. If you always press that button, this extension is for you. 
 
 ## Download
 SkIntro is now available to download from the [Google Chrome Store](https://chrome.google.com/webstore/detail/skintro/acjikceibgbijbnhfialnjhilckdajan).
@@ -16,6 +16,8 @@ A lightweight Chrome extension to auto-skip Intro, Recap, and Ads on streaming s
 - [x] YouTube - Ads
 
 Support for other services is coming soon.
+
+It works by waiting for the "Skip Intro" button to appear and clicks it, so it'll only work for services/shows that support displaying that button.
 
 ## ToDo
 - [x] Add Switches for each services

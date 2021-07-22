@@ -65,197 +65,67 @@ function disableNotification(){
 
 
 
-if (location.hostname == "www.netflix.com"){
+function executeSkip(stream_service,arrive_div,button_div){
+    console.log(stream_service);
 
-    var stream_service = "Netflix";
-    console.log(stream_service)
-
-
-    document.arrive(".skip-credits",function(){
-
-
+    document.arrive(arrive_div,function(){
         chrome.storage.sync.get(stream_service, function(result) {
             value = result[stream_service];
-    
             if (value || value == undefined){
-                document.getElementsByClassName("nf-icon-button")[0].click();
+                document.getElementsByClassName(button_div)[0].click();
                 console.log("Skipped Intro")
                 // console.log(document.querySelector('.ellipsize-text'));
-        
-                generateNotification('Netflix');
-    
+                generateNotification(stream_service);
             }
             else{
                 console.log("Skipping Off")
             }
-    
           });
-
-
-
     });
+}
 
+
+
+
+if (location.hostname == "www.netflix.com"){
+    var stream_service = "Netflix";
+    executeSkip(stream_service,".skip-credits","nf-icon-button");
 }
 else if (location.hostname == "www.youtube.com"){
-
     var stream_service = "YouTube";
-    console.log(stream_service)
-
-
-    document.arrive(".ytp-ad-skip-button",function(){
-
-
-
-        chrome.storage.sync.get(stream_service, function(result) {
-            value = result[stream_service];
-    
-            if (value || value == undefined){
-                document.getElementsByClassName("ytp-ad-skip-button")[0].click();
-                console.log("Skipped Ad")
-                // console.log(document.querySelector('.ellipsize-text'));
-        
-                generateNotification(stream_service);
-    
-            }
-            else{
-                console.log("Skipping Off")
-            }
-    
-          });
-
-
-
-    });
-
+    executeSkip(stream_service,".ytp-ad-skip-button","ytp-ad-skip-button");
 }
 else if (location.hostname == "www.amazon.com" || location.hostname == "www.primevideo.com"){
-
     var stream_service = "Prime";
-    console.log(stream_service)
-
-
-    
-
-    document.arrive(".atvwebplayersdk-skipelement-button",function(){
-        
-        st_time = document.getElementsByClassName('atvwebplayersdk-timeindicator-text')[0].textContent.split(" ")[0]
-        // console.log(st_time)
-
-
-        chrome.storage.sync.get(stream_service, function(result) {
-            value = result[stream_service];
-
-    
-            if (value || value == undefined){
-                document.getElementsByClassName("atvwebplayersdk-skipelement-button")[0].click();
-
-                // setTimeout(testFunc(st_time),3000);
-
-                // console.log(document.getElementsByClassName('atvwebplayersdk-timeindicator-text')[0].textContent.split(" ")[0])
-
-                console.log("Skipping Intro")
-                generateNotification('Amazon');
-    
-            }
-            else{
-                console.log("Skipping Off")
-            }
-    
-          });
-
-
-
-
-
-        // console.log(document.querySelector('.ellipsize-text'));
-    });
-
+    executeSkip(stream_service,".atvwebplayersdk-skipelement-button","atvwebplayersdk-skipelement-button");
 }
 
 else if (location.hostname == "www.peacocktv.com"){
-
-    var stream_service = "Peacock"
-    console.log(stream_service)
-
-
-    document.arrive(".playback-controls__skip--button",function(){
-
-
-
-
-        chrome.storage.sync.get(stream_service, function(result) {
-            value = result[stream_service];
-    
-            if (value || value == undefined){
-                document.getElementsByClassName("playback-controls__skip--button")[0].click();
-                console.log("Skipping Intro")
-        
-                generateNotification('Peacock');
-    
-            }
-            else{
-                console.log("Skipping Off")
-            }
-    
-          });
-
-
-
-
-
-
-
-        // console.log(document.querySelector('.ellipsize-text'));
-    });
-
+    var stream_service = "Peacock";
+    executeSkip(stream_service,".playback-controls__skip--button","playback-controls__skip--button");
 }
 else if (location.hostname == "www.disneyplus.com"){
 
-
-
     var stream_service = "Disney+"
-    console.log(stream_service)
-
-
-    document.arrive(".skip__button",function(){
-
-        chrome.storage.sync.get(stream_service, function(result) {
-            value = result[stream_service];
-    
-            if (value || value == undefined){
-                document.getElementsByClassName("skip__button")[0].click();
-                console.log("Skipped Intro")
-        
-                generateNotification('Disney+');
-    
-            }
-            else{
-                console.log("Skipping Off")
-            }
-    
-          });
-
-        // console.log(document.querySelector('.ellipsize-text'));
-    });
-
+    executeSkip(stream_service,".skip__button","skip__button")
 }
 // else if (location.hostname == "www.hulu.com"){
-//     console.log("HULU YAY");
-//     document.arrive(".SkipButton__button",function(){
-//         document.getElementsByClassName("SkipButton__button")[0].click();
-//         console.log("SKIP FOUND")
-
-//         generateNotification('Hulu');
-//         // console.log(document.querySelector('.ellipsize-text'));
+//     var stream_service = "Hulu"
+//     // executeSkip(stream_service,".SkipButton__button","SkipButton__button")
+//     var mydiv = document.getElementsByClassName('.SkipButton__button')[0]
+//     $(mydiv).livequery(function() {
+//         alert("do something");
 //     });
 
 // }
 
+// https://github.com/sindresorhus/on-change
 
 
 
 
-{/* <button class="fqye4e3 fovm8oe fez7z67 fektfsf fif0hcs f177tia9 fww9brl f1nxf0rp f1ylp05h atvwebplayersdk-skipelement-button f1cg7427 f989gul f1rjin6j f19qnh9o" style="padding: 0px 22px; line-height: normal; min-width: 0px;">Skip Intro</button> */}
+
+// {/* <button class="fqye4e3 fovm8oe fez7z67 fektfsf fif0hcs f177tia9 fww9brl f1nxf0rp f1ylp05h atvwebplayersdk-skipelement-button f1cg7427 f989gul f1rjin6j f19qnh9o" style="padding: 0px 22px; line-height: normal; min-width: 0px;">Skip Intro</button> */}
 
 
 // chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
