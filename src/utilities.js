@@ -89,7 +89,9 @@ function executeSkip(stream_service,arrive_div,button_div){
 
 if (location.hostname == "www.netflix.com"){
     var stream_service = "Netflix";
-    executeSkip(stream_service,".skip-credits","nf-icon-button");
+    executeSkip(stream_service,".watch-video--skip-content-button","watch-video--skip-content-button");
+
+    // class="button-primary watch-video--skip-content-button medium hasLabel ltr-ublg01"
 }
 else if (location.hostname == "www.youtube.com"){
     var stream_service = "YouTube";
