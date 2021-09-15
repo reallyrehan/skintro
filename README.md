@@ -1,5 +1,6 @@
 # SkIntro
-<img src = "https://img.shields.io/chrome-web-store/v/acjikceibgbijbnhfialnjhilckdajan.svg">
+[![Chrome Store version](https://img.shields.io/chrome-web-store/v/acjikceibgbijbnhfialnjhilckdajan.svg)](https://chrome.google.com/webstore/detail/skintro/acjikceibgbijbnhfialnjhilckdajan)
+
 
 Most streaming services offer a "Skip Intro" button. If you always press that button, this extension is for you. 
 
