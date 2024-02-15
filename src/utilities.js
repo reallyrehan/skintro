@@ -176,3 +176,41 @@ else if (location.hostname == "www.disneyplus.com"){
 //     console.log("Skipped Intro")
 //     generateNotification('Amazon');
 // }
+
+
+// Key Press Ad Skipper
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '190') {
+        skipAd();
+        // up arrow
+    }
+}
+
+function skipAd(){
+    vid = document.getElementsByTagName('video');
+    // vid[0].play()
+    console.log("AD SKIPPER")
+    
+
+    if (location.hostname == "www.youtube.com"){
+        for(i=0;i<vid.length;i++){
+        vid[i].currentTime = vid[i].currentTime +10000;
+        }
+    }
+    else if (location.hostname == "www.peacocktv.com"){
+        el = document.getElementsByClassName('ad-countdown__remaining-time')
+        vid[0].currentTime = vid[0].currentTime +parseInt(el[0].textContent)+1;
+    }
+    else if (location.hostname == "www.hulu.com"){
+        console.log("Skipping Ad on Hulu")
+        el = document.getElementsByClassName('AdUnitView__adBar__timer')
+        time_to_skip = parseInt(el[0].textContent.split(':')[0])*60+parseInt(el[0].textContent.split(':')[1])
+        vid[1].currentTime = vid[1].currentTime +time_to_skip;
+
+    }
+}

@@ -3,7 +3,7 @@
 
   "name": "SkIntro",
   "description": "This extension auto skips intro for streaming services.",
-  "version": "1.1",
+  "version": "1.2",
   "icons": {"128": "icon.png" },
   "options_page": "options.html",
   "browser_action": {
@@ -26,7 +26,8 @@
         "https://*.amazon.com/*",
         "https://*.peacocktv.com/*",
         "https://*.disneyplus.com/*",
-        "https://*.youtube.com/*"
+        "https://*.youtube.com/*",
+        "https://*.hulu.com/*"
       ],
       "js": [
           "jquery.min.js",
